@@ -1,8 +1,40 @@
 #include "PhoneBook.hpp"
 
+bool string_printable(std::string str)
+{
+    if (str.empty())
+        return (false);
+    int i = 0;
+    while(str[i])
+    {
+        if(!isprint(str[i]))
+            return(false);
+        i++;
+    }
+    return(true);
+}
+
+void is_valid(std::string ask)
+{
+    std::string str;
+    while(1)
+    {
+        std::cout << ask;
+        std::getline(std::cin, str);
+        if(string_printable(str))
+            break;
+        else
+            std::cout << "Invalid\n";
+    }
+}
+
 void add()
 {
-    return;
+    is_valid("First name: ");
+    is_valid("Last name: ");
+    is_valid("Nickname: ");
+    is_valid("Phone number: ");
+    is_valid("Darkest secret: ");
 }
 
 void search()
