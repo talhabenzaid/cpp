@@ -56,8 +56,31 @@ void add(PhoneBook &phonebook)
     phonebook.add_contact(new_contact);
 }
 
-void search()
+std::string format(std::string str)
 {
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    return std::string(10 - str.length(), ' ') + str;
+}
+
+void PhoneBook::list_contact()
+{
+    std::cout << "---------------------------------------------\n";
+    std::cout << "| Index | First Name | Last Name | Nickname |\n";
+    std::cout << "---------------------------------------------\n";
+    for (int i = 0; i < 8; i++)
+    {
+        std::cout << "|   " << i + 1 << "   | ";
+        std::cout << format(contact[i].getFirstName()) << " | ";
+        std::cout << format(contact[i].getLastName()) << " | ";
+        std::cout << format(contact[i].getNickname()) << " |\n";
+    }
+    std::cout << "---------------------------------------------\n";
+} 
+
+void search(PhoneBook &phonebook)
+{
+    phonebook.list_contact();
     return;
 }
 
@@ -79,7 +102,7 @@ int main(void)
         if (cmd == "ADD")
             add(phonebook);
         else if (cmd == "SEARCH")
-            search();
+            search(phonebook);
         else if (cmd == "EXIT")
             exit_cmd();
         else
