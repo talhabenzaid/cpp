@@ -14,7 +14,7 @@ bool string_printable(std::string str)
     return(true);
 }
 
-void is_valid(std::string ask)
+std::string is_valid(std::string ask)
 {
     std::string str;
     while(1)
@@ -26,15 +26,34 @@ void is_valid(std::string ask)
         else
             std::cout << "Invalid\n";
     }
+    return(str);
 }
 
-void add()
+void Contact::set_contact(std::string first, std::string last, std::string nick, std::string phone, std::string secret)
 {
-    is_valid("First name: ");
-    is_valid("Last name: ");
-    is_valid("Nickname: ");
-    is_valid("Phone number: ");
-    is_valid("Darkest secret: ");
+    First_name = first;
+    Last_name = last;
+    Nickname = nick;
+    Phone_number = phone;
+    Darkest_secret = secret;
+}
+
+void PhoneBook::add_contact(Contact add_new_countact)
+{
+        contact[index % 8] = add_new_countact;
+        index++;
+}
+
+void add(PhoneBook &phonebook)
+{
+    Contact new_contact;
+    std::string first = is_valid("First name: ");
+    std::string last = is_valid("Last name: ");
+    std::string nick = is_valid("Nickname: ");
+    std::string phone = is_valid("Phone number: ");
+    std::string secret = is_valid("Darkest secret: ");
+    new_contact.set_contact(first, last, nick, phone, secret);
+    phonebook.add_contact(new_contact);
 }
 
 void search()
@@ -50,14 +69,15 @@ void exit_cmd()
 
 int main(void)
 {
+    PhoneBook phonebook;
     std::string cmd;
-   while (1)
+    while (1)
     {
         std::cout << "Enter your command (ADD, SEARCH or EXIT): ";
         std::getline(std::cin, cmd);
 
         if (cmd == "ADD")
-            add();
+            add(phonebook);
         else if (cmd == "SEARCH")
             search();
         else if (cmd == "EXIT")
