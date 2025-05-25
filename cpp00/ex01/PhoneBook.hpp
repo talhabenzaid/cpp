@@ -30,5 +30,8 @@ class PhoneBook
         void list_contact();
 };
 
+void add(PhoneBook &phonebook);
+void search(PhoneBook &phonebook);
+void exit_cmd();
 
 #endif
