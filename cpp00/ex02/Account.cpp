@@ -84,6 +84,7 @@ void	Account::makeDeposit( int deposit )
     std :: cout << ";amount:" << _amount
     << ";nb_deposits:" << _nbDeposits << std::endl;
 }
+
 bool	Account::makeWithdrawal( int withdrawal )
 {
     _displayTimestamp();
@@ -105,4 +106,9 @@ bool	Account::makeWithdrawal( int withdrawal )
               << ";amount:" << _amount
               << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
     return true;
+}
+
+int Account::checkAmount( void ) const
+{
+	return _amount;
 }
