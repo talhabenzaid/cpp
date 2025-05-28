@@ -30,8 +30,6 @@ class PhoneBook
         void list_contact();
 };
 
-void add(PhoneBook &phonebook);
-void search(PhoneBook &phonebook);
-void exit_cmd();
+std::string format(std::string str);
 
 #endif

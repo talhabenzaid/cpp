@@ -1,5 +1,12 @@
 #include "PhoneBook.hpp"
 
+std::string format(std::string str)
+{
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    return std::string(10 - str.length(), ' ') + str;
+}
+
 bool string_printable(std::string str)
 {
     if (str.empty())
@@ -51,4 +58,24 @@ void exit_cmd()
 {
     std::cout << "Exit\n";
     std::exit(0);
+}
+
+int main(void)
+{
+    PhoneBook phonebook;
+    std::string cmd;
+    while (1)
+    {
+        std::cout << "Enter your command (ADD, SEARCH or EXIT): ";
+        std::getline(std::cin, cmd);
+
+        if (cmd == "ADD")
+            add(phonebook);
+        else if (cmd == "SEARCH")
+            search(phonebook);
+        else if (cmd == "EXIT")
+            exit_cmd();
+        else
+            std::cout << "Invalid command\n";
+    }
 }
