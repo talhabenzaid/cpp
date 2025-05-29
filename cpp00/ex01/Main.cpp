@@ -68,7 +68,11 @@ int main(void)
     {
         std::cout << "Enter your command (ADD, SEARCH or EXIT): ";
         std::getline(std::cin, cmd);
-
+        if(std::cin.eof())
+        {
+            std::cout << std::endl;
+            break;
+        }
         if (cmd == "ADD")
             add(phonebook);
         else if (cmd == "SEARCH")
