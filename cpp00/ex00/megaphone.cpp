@@ -19,5 +19,5 @@ int main(int argc, char **argv)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
     else
         upper(argc, argv);
-    return 0;
+    return (0);
 }
