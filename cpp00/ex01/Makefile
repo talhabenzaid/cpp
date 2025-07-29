@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $@
 
-%.o: %.cpp PhoneBook.h
+%.o: %.cpp PhoneBook.hpp Contact.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean:

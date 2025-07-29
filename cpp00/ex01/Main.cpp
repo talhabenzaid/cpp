@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 std::string format(std::string str)
 {
@@ -28,6 +29,11 @@ std::string is_valid(std::string ask)
     {
         std::cout << ask;
         std::getline(std::cin, str);
+        if(std::cin.eof())
+        {
+            std::cout << std::endl;
+            std::exit(0);
+        }
         if(string_printable(str))
             break;
         else
@@ -50,7 +56,24 @@ void add(PhoneBook &phonebook)
 
 void search(PhoneBook &phonebook)
 {
+    std::string i;
     phonebook.list_contact();
+    std::cout <<  "index : ";
+    std::getline(std::cin ,i);
+    for(int j = 0;i[j];j++)
+    {
+        if(!isprint(i[j]) || (i[j] < '0' || i[j] > '9'))
+        {
+            std::cout << "invalide index\n";
+            return;
+        }
+    }
+    if(i.empty())
+        std::cout << "invalide index\n";
+    else if (phonebook.check_index(std::stoi(i)) == 1)
+        std::cout << "invalid or empty index\n";
+    else
+        phonebook.display_contact(stoi(i));
     return;
 }
 
