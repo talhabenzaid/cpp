@@ -10,20 +10,24 @@ void PhoneBook::add_contact(Contact add_new_countact)
 void PhoneBook::list_contact()
 {
     std::cout << "---------------------------------------------\n";
-    std::cout << "| Index | First Name | Last Name | Nickname |\n";
+    std::cout << "| " << std::setw(5) << "Index"
+              << " | " << std::setw(10) << "First Name"
+              << " | " << std::setw(9) << "Last Name"
+              << " | " << std::setw(8) << "Nickname" << " |\n";
     std::cout << "---------------------------------------------\n";
+    
     for (int i = 0; i < 8; i++)
     {
-        std::cout << "|   " << i + 1 << "   | ";
-        std::cout << format(contact[i].getFirstName()) << " | ";
-        std::cout << format(contact[i].getLastName()) << " | ";
-        std::cout << format(contact[i].getNickname()) << " |\n";
+        std::cout << "| " << std::setw(5) << i + 1
+                  << " | " << std::setw(10) << format(contact[i].getFirstName())
+                  << " | " << std::setw(9) << format(contact[i].getLastName())
+                  << " | " << std::setw(8) << format(contact[i].getNickname()) << " |\n";
     }
 }
 
 int PhoneBook::check_index(int i)
 {
-    if (i >= 1 && i >= 8)
+    if ((i >= 1 && i >= 8) || i == 0)
     {
         return(1);
     }
