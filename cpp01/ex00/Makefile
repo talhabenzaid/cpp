@@ -1,6 +1,6 @@
-NAME	= Account
+NAME	= Zombie
 
-SRCS	= 	Account.cpp tests.cpp
+SRCS	=  Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $@
 
-%.o: %.cpp Account.hpp
+%.o: %.cpp Zombie.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean:
