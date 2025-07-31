@@ -13,7 +13,7 @@ Zombie* zombieHorde( int N, std::string name )
     }
     for (int i = 0;i < N;i++)
     {
-        Horde[i].Zombie(name);
+        Horde[i].set_name(name);
         Horde[i].announce();
     }
     return(Horde);
