@@ -9,7 +9,7 @@ class Zombie
     private:
         std::string name;
     public:
-        void announce( void ) {std::cout << name << ": BraiiiiiiinnnzzzZ...\n";}
+        void announce( void );
         Zombie(std::string name);
         ~Zombie();
 };
