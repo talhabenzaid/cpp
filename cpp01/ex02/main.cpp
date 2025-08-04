@@ -8,10 +8,10 @@ int main ()
     std::string &stringREF = string;
 
     std::cout << &string << "\n";
-    std::cout << &stdstringPTR << "\n";
+    std::cout << stdstringPTR << "\n";
     std::cout << &stringREF << "\n";
 
     std::cout << string << "\n";
-    std::cout << stdstringPTR << "\n";
+    std::cout << *stdstringPTR << "\n";
     std::cout << stringREF << "\n";
 }
