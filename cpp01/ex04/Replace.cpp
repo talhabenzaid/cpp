@@ -9,6 +9,7 @@ Replace::~Replace()
     // inputFile.close();
     // fio.close();
 }
+
 std::string Replace::get_line()
 {
     return(line);
