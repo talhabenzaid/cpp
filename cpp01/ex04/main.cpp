@@ -1,39 +1,48 @@
 #include "Replace.hpp"
 
-int main(int argc,char **argv)
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main(int argc, char **argv)
 {
-    //change the permissions
-    if(argc != 4)
+    if (argc != 4)
     {
-        std::cerr << "its must be a filename and two strings\n";
-        return(1);
+        std::cerr << "nust be <input> <s1> <s2>\n";
+        return (1);
     }
-    std::ifstream inputFile(argv[1]);
-    // The program must read from the file using an ifstream or equivalent,
-// and write using an ofstream or equivalent.
-    if (!inputFile.is_open())
+
+    std::string input = argv[1];
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+
+    std::ifstream input_file(input);
+    if (!input_file.is_open())
     {
-        std::cerr << "Error: Could not open file." << std::endl;
-        return(1);
+        std::cerr << "Could not open input\n";
+        return (1);
     }
-    else
+
+    std::ofstream output_file(input + ".replace", std::ios::out | std::ios::trunc);
+    if (!output_file.is_open())
     {
-        std::fstream fio(std::string(argv[1]) + ".replace", std::ios::in | std::ios::out | std::ios::trunc);
-        if (!fio.is_open())
+        std::cerr << "Could not open output\n";
+        return (1);
+    }
+
+    std::string line;
+    while (std::getline(input_file, line))
+    {
+        size_t pos = 0;
+        while ((pos = line.find(s1, pos)) != std::string::npos)
         {
-            std::cerr << "Error: Could not open file." << std::endl;
-            return(1);
+            line.erase(pos, s1.length());
+            line.insert(pos, s2);
+            pos += s2.length();
         }
-        std::string line;
-        Replace replace(line);
-        while (std::getline(inputFile, line)) 
-        {
-            replace.set_line(line);
-            std::size_t found = replace.get_line().find(argv[2]);
-            if(found == std::string::npos)
-                fio << replace.get_line() << std::endl;
-            else
-                fio << argv[3] << std::endl;
-        }
+        output_file << line << '\n';
     }
+
+    std::cout << "Replacement done\n";
+    return (0);
 }
