@@ -2,13 +2,15 @@
 
 int main(int argc,char **argv)
 {
+    //change the permissions
     if(argc != 4)
     {
         std::cerr << "its must be a filename and two strings\n";
         return(1);
     }
     std::ifstream inputFile(argv[1]);
-
+    // The program must read from the file using an ifstream or equivalent,
+// and write using an ofstream or equivalent.
     if (!inputFile.is_open())
     {
         std::cerr << "Error: Could not open file." << std::endl;

@@ -7,12 +7,12 @@ void  Harl::debug( void )
 
 void  Harl::info( void )
 {
-    std::cout << "I cannot believe adding extra bacon costs more money. You didn\\’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!\n";
+    std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!\n";
 }
 
 void  Harl::warning( void )
 {
-    std::cout << "I think I deserve to have some extra bacon for free. I\\’ve been coming for years, whereas you started working here just last month.\n";
+    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month.\n";
 }
 
 void  Harl::error( void )
@@ -20,8 +20,34 @@ void  Harl::error( void )
     std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain( std::string level );
+void Harl::complain( std::string level )
 {
-    i
+
+    if(level == "DEBUG")
+    {
+        void (Harl::*ptr)() = &Harl::debug;
+        
+        (this->*ptr)();
+    }
+    else if(level == "INFO")
+    {
+        void (Harl::*ptr)() = &Harl::info;
+        
+        (this->*ptr)();
+    }
+    else if(level == "WARNING")
+    {
+        void (Harl::*ptr)() = &Harl::warning;
+        
+        (this->*ptr)();
+    }
+    else if(level == "ERROR")
+    {
+        void (Harl::*ptr)() = &Harl::error;
+        
+        (this->*ptr)();
+    }
+    else
+        std::cout << "invalide comments" << std::endl;
 }
 
