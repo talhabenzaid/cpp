@@ -20,34 +20,17 @@ void  Harl::error( void )
     std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain( std::string level )
+void Harl::complain(std::string level)
 {
-
-    if(level == "DEBUG")
+    void (Harl::*functions[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    
+    for(int i = 0; i < 4; i++)
     {
-        void (Harl::*ptr)() = &Harl::debug;
-        
-        (this->*ptr)();
+        if(level == levels[i])
+        {
+            (this->*functions[i])();
+            return;
+        }
     }
-    else if(level == "INFO")
-    {
-        void (Harl::*ptr)() = &Harl::info;
-        
-        (this->*ptr)();
-    }
-    else if(level == "WARNING")
-    {
-        void (Harl::*ptr)() = &Harl::warning;
-        
-        (this->*ptr)();
-    }
-    else if(level == "ERROR")
-    {
-        void (Harl::*ptr)() = &Harl::error;
-        
-        (this->*ptr)();
-    }
-    else
-        std::cout << "invalide comments" << std::endl;
 }
-
