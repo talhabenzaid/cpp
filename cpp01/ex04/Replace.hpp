@@ -5,19 +5,6 @@
 #include <fstream>
 #include <string>
 
-
-class Replace
-{
-    private:
-        std::string line;
-    public:
-        Replace(std::string line);
-        ~Replace();
-        std::string get_line();
-        void set_line(std::string line);
-
-};
-
-
+int pars(int argc,char **argv);
 
 #endif

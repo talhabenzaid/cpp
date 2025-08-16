@@ -1,16 +1,10 @@
 #include "Replace.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <string>
 
 int main(int argc, char **argv)
 {
-    if (argc != 4)
-    {
-        std::cerr << "nust be <input> <s1> <s2>\n";
-        return (1);
-    }
+   if(pars(argc,argv) == 1)
+        return(1);
 
     std::string input = argv[1];
     std::string s1 = argv[2];
