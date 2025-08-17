@@ -1,7 +1,13 @@
 #include "Zombie.hpp"
 
+void f()
+{
+    system("leaks  Zombie");
+}
+
 int main()
 {
-    Zombie *zombie = zombieHorde(2,"two_zombie");
+    // atexit(f);
+    Zombie *zombie = zombieHorde(001,"Two_zombie");
     delete[] zombie;
 }

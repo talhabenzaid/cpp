@@ -24,7 +24,6 @@ void Harl::complain(std::string level)
 {
     std::string lvl[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void (Harl::*complain[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-    
     for(int i = 0; i < 4; i++)
     {
         if(level == lvl[i])
@@ -32,8 +31,6 @@ void Harl::complain(std::string level)
             (this->*complain[i])();
             return ;
         }
-
-
-        
     }
+    std::cout << "Invalide complain\n";
 }
