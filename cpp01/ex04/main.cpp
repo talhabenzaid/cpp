@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     }
 
     std::string line;
-    while (std::getline(input_file, line))
+    if (std::getline(input_file, line, '\0'))
     {
         size_t pos = 0;
         while ((pos = line.find(s1, pos)) != std::string::npos)
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
             line.insert(pos, s2);
             pos += s2.length();
         }
-        output_file << line << '\n';
+        output_file << line;
     }
 
     std::cout << "Replacement done\n";

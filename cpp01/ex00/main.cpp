@@ -1,13 +1,13 @@
 #include "Zombie.hpp"
 
-// void f()
-// {
-//     system("leaks  Zombie");
-// }
+void f()
+{
+    system("leaks  Zombie");
+}
 
 int main()
 {
-    // atexit(f);
+    atexit(f);
     Zombie* Zombie1 = newZombie("Heap");
     Zombie1->announce();
     delete Zombie1;
