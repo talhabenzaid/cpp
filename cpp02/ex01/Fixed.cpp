@@ -13,7 +13,7 @@ Fixed::Fixed(const int i)
 }
 Fixed::Fixed(const float j)
 {
-    std::cout << "Int constructor called\n";
+    std::cout << "Float constructor called\n";
     fixed_point = static_cast<int>(roundf(j * (1 << fractional_bits)));
 }
 
@@ -23,7 +23,7 @@ Fixed::Fixed(const Fixed &other)
     fixed_point = other.fixed_point;
 }
 
-Fixed& Fixed::operator=( Fixed& other)
+Fixed& Fixed::operator=(const Fixed& other)
 {
     std::cout << "Copy assignment operator called \n";
     if(this != &other)
@@ -55,4 +55,10 @@ float Fixed::toFloat( void ) const
 int Fixed::toInt(void) const
 {
         return fixed_point >> fractional_bits;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+    os << fixed.toFloat();
+    return os;
 }
