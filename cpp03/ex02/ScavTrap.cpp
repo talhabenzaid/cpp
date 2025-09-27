@@ -3,10 +3,6 @@
 ScavTrap::ScavTrap()
 {
     std::cout << "ScavTrap Default constructor called\n";
-    name = "";
-    Hit_points = 100;
-    Energy_points = 50;
-    Attack_damage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -27,10 +23,13 @@ ScavTrap::ScavTrap(ScavTrap &other) : ClapTrap(other)
 ScavTrap& ScavTrap::operator=(ScavTrap &other)
 {
     std::cout << "ScavTrap Copy assignment operator called \n";
-    name = other.name;
-    Hit_points = other.Hit_points;
-    Energy_points = other.Energy_points;
-    Attack_damage = other.Attack_damage;
+    if (this != &other)
+    {
+        name = other.name;
+        Hit_points = other.Hit_points;
+        Energy_points = other.Energy_points;
+        Attack_damage = other.Attack_damage;
+    }
     return(*this);
 }
 

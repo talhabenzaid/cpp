@@ -3,10 +3,6 @@
 ClapTrap::ClapTrap()
 {
     std::cout << "Default constructor called\n";
-    name = "";
-    Hit_points = 10;
-    Energy_points = 10;
-    Attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -30,10 +26,13 @@ ClapTrap::ClapTrap(ClapTrap &other)
 ClapTrap& ClapTrap::operator=(ClapTrap &other)
 {
     std::cout << "Copy assignment operator called \n";
-    name = other.name;
-    Hit_points = other.Hit_points;
-    Energy_points = other.Energy_points;
-    Attack_damage = other.Attack_damage;
+    if (this != &other)
+    {
+        name = other.name;
+        Hit_points = other.Hit_points;
+        Energy_points = other.Energy_points;
+        Attack_damage = other.Attack_damage;
+    }
     return(*this);
 }
 

@@ -3,10 +3,6 @@
 FragTrap::FragTrap()
 {
     std::cout << "FragTrap Default constructor called\n";
-    name = "";
-    Hit_points = 100;
-    Energy_points = 100;
-    Attack_damage = 30;
 }
 
 FragTrap::FragTrap(std::string name)
@@ -27,10 +23,13 @@ FragTrap::FragTrap(FragTrap &other) : ClapTrap(other)
 FragTrap& FragTrap::operator=(FragTrap &other)
 {
     std::cout << "FragTrap Copy assignment operator called \n";
-    name = other.name;
-    Hit_points = other.Hit_points;
-    Energy_points = other.Energy_points;
-    Attack_damage = other.Attack_damage;
+    if (this != &other)
+    {
+        name = other.name;
+        Hit_points = other.Hit_points;
+        Energy_points = other.Energy_points;
+        Attack_damage = other.Attack_damage;
+    }
     return(*this);
 }
 
