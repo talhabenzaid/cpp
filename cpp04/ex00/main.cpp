@@ -1,16 +1,51 @@
+#include <iostream>
 #include "Animal.hpp"
-#include "Cat.hpp"
 #include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
+
     const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); 
-    j->makeSound();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
+
+    std::cout << "Dog type: " << dog->getType() << std::endl;
+    std::cout << "Cat type: " << cat->getType() << std::endl;
+
+    std::cout << "Cat makes sound: ";
+    cat->makeSound();
+    std::cout << "Dog makes sound: ";
+    dog->makeSound();
+    std::cout << "Animal makes sound: ";
     meta->makeSound();
+
+    delete meta;
+    delete dog;
+    delete cat;
+
+
+    
+
+    const WrongAnimal* wrongMeta = new WrongAnimal();
+    const WrongAnimal* wrongCat = new WrongCat();
+
+    std::cout << "WrongCat type: " << wrongCat->getType() << std::endl;
+
+    std::cout << "WrongCat makes sound: ";
+    wrongCat->makeSound();
+    std::cout << "WrongAnimal makes sound: ";
+    wrongMeta->makeSound();
+
+    delete wrongMeta;
+    delete wrongCat;
+
+    WrongCat realWrongCat;
+    std::cout << "Direct WrongCat type: " << realWrongCat.getType() << std::endl;
+    std::cout << "Direct WrongCat makes sound: ";
+    realWrongCat.makeSound();
+
     return 0;
 }
