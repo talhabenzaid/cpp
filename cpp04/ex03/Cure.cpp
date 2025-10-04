@@ -3,7 +3,7 @@
 
 Cure::Cure() : AMateria("cure")
 {
-    std::cout << "Cure default constructor called" << std::end
+    std::cout << "Cure default constructor called" << std::endl;
 }
 
 Cure::Cure(const Cure &other) : AMateria(other)

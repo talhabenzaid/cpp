@@ -11,9 +11,9 @@ public:
     Cure(const Cure &other);
     Cure &operator=(const Cure &other);
     virtual ~Cure();
-
-    virtual AMateria* clone() const override;
-    virtual void use(ICharacter& target) override;
+     
+    virtual void use(ICharacter& target);
+    AMateria* Cure::clone() const;
 };
 
 #endif
