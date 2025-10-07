@@ -36,5 +36,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    (void)target;
+    (void) target;
 }

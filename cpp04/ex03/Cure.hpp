@@ -13,7 +13,7 @@ public:
     virtual ~Cure();
      
     virtual void use(ICharacter& target);
-    AMateria* Cure::clone() const;
+    AMateria* clone() const;
 };
 
 #endif

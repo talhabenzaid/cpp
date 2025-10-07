@@ -34,18 +34,12 @@ int main()
 
     std::cout << "WrongCat type: " << wrongCat->getType() << std::endl;
 
-    std::cout << "WrongCat makes sound: ";
     wrongCat->makeSound();
     std::cout << "WrongAnimal makes sound: ";
     wrongMeta->makeSound();
 
     delete wrongMeta;
     delete wrongCat;
-
-    WrongCat realWrongCat;
-    std::cout << "Direct WrongCat type: " << realWrongCat.getType() << std::endl;
-    std::cout << "Direct WrongCat makes sound: ";
-    realWrongCat.makeSound();
 
     return 0;
 }
