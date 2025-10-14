@@ -10,19 +10,19 @@ Bureaucrat::Bureaucrat(std::string n,int grade): name(n)
         throw GradeTooHighException();
     if (grade > 150) 
         throw GradeTooLowException();
-    grade = 150;
+    this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &other) : name(other.name)
 {
-    grade = other.grade;
+    this->grade = other.grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat &other)
 {
     if (this != &other)
     {
-        grade = other.grade;
+        this->grade = other.grade;
     }
     return *this;
 }
