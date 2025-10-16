@@ -1,0 +1,51 @@
+#include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm()
+    : AForm("PresidentialPardonForm", false, 72, 45), target("Default")
+{
+
+}
+RobotomyRequestForm::RobotomyRequestForm(const std::string target)
+    :  AForm("PresidentialPardonForm", false, 72, 45), target(target)
+{
+
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), target(other.target)
+{
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+    if (this != &other)
+    {
+        AForm::operator=(other);
+        target = other.target;
+    }
+    return *this;
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+
+}
+
+
+ 
+
+void RobotomyRequestForm::executeAction() const
+{
+    std::cout << "drilling noises" << std::endl;
+    static bool seeded = false;
+    if (!seeded)
+    {
+        std::srand(std::time(NULL));
+        seeded = true;
+    }
+
+    if (std::rand() % 2 == 0)
+        std::cout << target << " has been robotomized successfully" << std::endl;
+    else
+        std::cout << "Robotomy failed on " << target << std::endl;
+}
+

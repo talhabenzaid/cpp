@@ -35,7 +35,6 @@ int main() {
 
         std::cout << "increment" << std::endl;
         bure4.increment();
-        std::cout <<"test" << std::endl;
     } catch (std::exception &e)
     {
         std::cerr << "Exception during increment: " << e.what() << std::endl;
