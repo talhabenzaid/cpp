@@ -6,8 +6,8 @@ Form::Form()
 {
 
 }
-Form::Form(const std::string name,bool is_sign,const int grade_sign,const int grade_execute): name(name),
-     is_sign(is_sign), grade_sign(grade_sign), grade_execute(grade_execute)
+Form::Form(const std::string name, const int grade_sign,const int grade_execute): name(name),
+     is_sign(false), grade_sign(grade_sign), grade_execute(grade_execute)
 {
     if (grade_sign < 1 || grade_execute < 1)
         throw GradeTooHighException();
@@ -66,10 +66,10 @@ void Form::beSigned(Bureaucrat& bureaucrat)
 std::ostream& operator<<(std::ostream& os,Form &form)
 {
     if(form.getIs_sign() == true)
-        os << form.getName() << " is signe and his grade signe" << 
+        os << form.getName() << " is signe and his grade signe " << 
             form.getGrade_sign() << " and his grade execute " << form.getGrade_execute() << std::endl;
     else
-        os << form.getName() << " is not signe and his grade signe" << 
+        os << form.getName() << " is not signe and his grade signe " << 
             form.getGrade_sign() << " and his grade execute " << form.getGrade_execute() << std::endl;
     return os;
 }

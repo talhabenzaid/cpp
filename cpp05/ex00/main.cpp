@@ -11,7 +11,6 @@ int main() {
         std::cerr << e.what() << std::endl;
     }
 
-
     try
     {
         Bureaucrat bure2("bure2", 0);
@@ -26,18 +25,18 @@ int main() {
     }
 
     try {
-        Bureaucrat bure4("bure4", 2);
+        Bureaucrat bure4("bure4", 150);
         std::cout << bure4;
 
-        std::cout << "increment" << std::endl;
-        bure4.increment();
+        std::cout << "decrement" << std::endl;
+        bure4.decrement();
         std::cout << bure4;
 
-        std::cout << "increment" << std::endl;
-        bure4.increment();
+        std::cout << "decrement" << std::endl;
+        bure4.decrement();
     } catch (std::exception &e)
     {
-        std::cerr << "Exception during increment: " << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     return 0;

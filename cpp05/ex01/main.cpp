@@ -13,7 +13,7 @@ int main()
     }
     try 
     {
-        Form form("cont",false,100,100);
+        Form form("cont" ,100,100);
         std::cout << form;
     }
     catch(std::exception &e)
@@ -23,9 +23,9 @@ int main()
     try 
     {
         Bureaucrat beru("beru", 100);
-        Form form("cont2",false,100,100);
-        form.beSigned(beru);
+        Form form("cont2" ,100,100);
         beru.signForm(form);
+        form.beSigned(beru);
     }
     catch(std::exception &e)
     {

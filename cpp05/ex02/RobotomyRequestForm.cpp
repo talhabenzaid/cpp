@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : AForm("PresidentialPardonForm", false, 72, 45), target("Default")
+    : AForm("RobotomyRequestForm", 72, 45), target("Default")
 {
 
 }
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
-    :  AForm("PresidentialPardonForm", false, 72, 45), target(target)
+    :  AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 
 }

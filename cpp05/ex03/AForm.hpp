@@ -17,7 +17,7 @@ private:
 
 public:
     AForm();
-    AForm(const std::string& name, bool is_sign, int grade_sign, int grade_execute);
+    AForm(const std::string& name, int grade_sign, int grade_execute);
     AForm(const AForm& other);
     AForm& operator=(const AForm& other);
     virtual ~AForm();

@@ -18,7 +18,6 @@ int main() {
 
         beru.signForm(shrubbery);
         beru3.signForm(robotomy);
-        beru2.signForm(robotomy);
         beru2.signForm(pardon);
 
         std::cout << "----------------------------------------------" <<std::endl;
@@ -29,10 +28,7 @@ int main() {
         beru3.executeForm(shrubbery);
         std::cout << "----------------------------------------------" <<std::endl;
 
-        beru2.executeForm(robotomy);
-        std::cout << "----------------------------------------------" <<std::endl;
-
-        beru.executeForm(pardon);
+        beru3.executeForm(robotomy);
         std::cout << "----------------------------------------------" <<std::endl;
 
         beru2.executeForm(pardon);

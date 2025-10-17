@@ -2,12 +2,12 @@
 
 
 PresidentialPardonForm::PresidentialPardonForm()
-    : AForm("PresidentialPardonForm", false, 25, 5), target("Default")
+    : AForm("PresidentialPardonForm", 25, 5), target("Default")
 {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
-    : AForm("PresidentialPardonForm", false, 25, 5), target(target)
+    : AForm("PresidentialPardonForm", 25, 5), target(target)
 {
 }
 

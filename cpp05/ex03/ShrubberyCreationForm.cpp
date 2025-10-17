@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("PresidentialPardonForm", false, 145, 137), target("Default")
+    : AForm("ShrubberyCreationForm", 145, 137), target("Default")
 {
 
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
-: AForm("PresidentialPardonForm", false, 145, 137), target(target)
+: AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
 
 }
@@ -34,7 +34,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::executeAction() const
 {
-    std::ofstream outfile(target.c_str());
+    std::ofstream outfile((target + "_shrubbery").c_str());
     if (!outfile.is_open())
     {
         std::cerr << "Error: could not open file\n";
