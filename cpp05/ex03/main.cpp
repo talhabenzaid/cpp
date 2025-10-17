@@ -1,41 +1,33 @@
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-int main() {
-    try
+int main()
+{
+    Intern someRandomIntern;
+    AForm* form;
+
+    std::string formName1 = "PresidentialPardonForm";
+    std::string target1 = "target1";
+    form = someRandomIntern.makeForm(formName1, target1);
+    if (form)
     {
-        Bureaucrat beru("beru", 50);
-        Bureaucrat beru2("beru2", 1);
-        Bureaucrat beru3("beru3", 150);
-
-        ShrubberyCreationForm shrubbery("shrubbery");
-        RobotomyRequestForm robotomy("robotomy");
-        PresidentialPardonForm pardon("pardon");
-
-        beru.signForm(shrubbery);
-        beru3.signForm(robotomy);
-        beru2.signForm(robotomy);
-        beru2.signForm(pardon);
-
-        std::cout << "----------------------------------------------" <<std::endl;
-
-        beru.executeForm(shrubbery);
-        std::cout << "----------------------------------------------" <<std::endl;
-
-        beru3.executeForm(shrubbery);
-        std::cout << "----------------------------------------------" <<std::endl;
-
-        beru2.executeForm(robotomy);
-        std::cout << "----------------------------------------------" <<std::endl;
-
-        beru.executeForm(pardon);
-        std::cout << "----------------------------------------------" <<std::endl;
-
-        beru2.executeForm(pardon);
-
-    } catch (std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+        std::cout << formName1 << std::endl;
+        delete form;
     }
+
+
+
+    std::cout << "--------------------------------------------------\n";
+    std::string formName2 = "test";
+    std::string target2 = "target2";
+    form = someRandomIntern.makeForm(formName2, target2);
+    if (form)
+    {
+        std::cout << formName2 << std::endl;
+        delete form;
+    }
+
     return 0;
 }

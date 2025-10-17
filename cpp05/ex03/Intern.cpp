@@ -6,10 +6,12 @@ Intern::Intern()
 
 Intern::Intern(Intern &other)
 {
+    (void)other;
 }
 
 Intern& Intern::operator=(Intern &other)
 {
+    (void)other;
     return *this;
 }
 
@@ -35,18 +37,15 @@ AForm* Intern::CreationForm(std::string &target)
 
 AForm* Intern::makeForm(std::string &FormName,std::string &FormTarget)
 {
-    std::string funct[4] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
-    
-    AForm* (Intern::*pointer[4])(std::string&) = {&Intern::PardonForm, &Intern::RequestForm, &Intern::CreationForm};
-
+    std::string funct[] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
+    AForm* (Intern::*pointer[])(std::string&) = {&Intern::PardonForm, &Intern::RequestForm, &Intern::CreationForm};
     for (int i = 0; i < 4; i++)
     {
-        if (funct[i] == FormName)
+        if (FormName == funct[i])
         {
-            std::cout << funct[i] << std::endl;
             return (this->*pointer[i])(FormTarget);
         }
     }
-    std::cerr << "not found" << std::endl;
+    std::cerr << "Not found" << std::endl;
     return NULL;
 }
