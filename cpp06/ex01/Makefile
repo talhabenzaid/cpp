@@ -1,6 +1,6 @@
 NAME	= convert
 
-SRCS	=  main.cpp  ScalarConverter.cpp 
+SRCS	=  main.cpp  Serializer.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $@
 
-%.o: %.cpp ScalarConverter.hpp
+%.o: %.cpp Serializer.hpp Data.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean:
