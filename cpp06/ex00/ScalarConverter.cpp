@@ -10,37 +10,37 @@ ScalarConverter::ScalarConverter(const ScalarConverter &other)
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 {
     (void)other;
-    return *this;
+    return (*this);
 }
 
 ScalarConverter::~ScalarConverter() {}
 
 bool isChar(const std::string &str)
 {
-    return str.length() == 1 && !std::isdigit(str[0]);
+    return (str.length() == 1 && !std::isdigit(str[0]));
 }
 
 bool isInt(const std::string &str)
 {
     if (str.empty())
-        return false;
+        return (false);
     int i = 0;
     if (str[i] == '-' || str[i] == '+')
         i++;
     if (i >= (int)str.length())
-        return false;
+        return (false);
     for (; i < (int)str.length(); i++)
     {
         if (!std::isdigit(str[i]))
-            return false;
+            return (false);
     }
-    return true;
+    return (true);
 }
 
 bool isFloat(const std::string &str)
 {
     if (str == "-inff" || str == "+inff" || str == "nanf")
-        return true;
+        return (true);
 
     bool dot = false;
     int i = 0;
@@ -52,11 +52,11 @@ bool isFloat(const std::string &str)
         if (str[i] == '.')
         {
             if (dot)
-                return false;
-            dot = true;
+                return (false);
+            dot = (true);
         }
         else if (!std::isdigit(str[i]))
-            return false;
+            return (false);
     }
     return (str[str.length() - 1] == 'f' && dot);
 }
@@ -64,7 +64,7 @@ bool isFloat(const std::string &str)
 bool isDouble(const std::string &str)
 {
     if (str == "-inf" || str == "+inf" || str == "nan")
-        return true;
+        return (true);
 
     bool dot = false;
     int i = 0;
@@ -76,13 +76,13 @@ bool isDouble(const std::string &str)
         if (str[i] == '.')
         {
             if (dot)
-                return false;
+                return (false);
             dot = true;
         }
         else if (!std::isdigit(str[i]))
-            return false;
+            return (false);
     }
-    return dot;
+    return (dot);
 }
 
 void printChar(double val)
@@ -107,7 +107,7 @@ void printInt(double val)
 
 void printFloat(double val)
 {
-    std::cout << "float: " << std::fixed << std::setprecision(1);
+    std::cout << "float: ";
     if (std::isnan(val))
         std::cout << "nanf" << std::endl;
     else if (val == std::numeric_limits<float>::infinity())
@@ -120,7 +120,7 @@ void printFloat(double val)
 
 void printDouble(double val)
 {
-    std::cout << "double: " << std::fixed << std::setprecision(1);
+    std::cout << "double: ";
     if (std::isnan(val))
         std::cout << "nan" << std::endl;
     else if (val == std::numeric_limits<double>::infinity())
@@ -133,22 +133,7 @@ void printDouble(double val)
 
 void castInt(const std::string &str)
 {
-    char *end;
-    long number = std::strtol(str.c_str(), &end, 10);
-
-    if (*end != '\0')
-    {
-        std::cout << "Error: invalid integer literal" << std::endl;
-        return;
-    }
-
-    if (number < std::numeric_limits<int>::min() || number > std::numeric_limits<int>::max())
-    {
-        std::cout << "int: impossible (overflow)" << std::endl;
-        return;
-    }
-
-    double val = static_cast<double>(number);
+    double val = static_cast<double>(std::strtol(str.c_str(), NULL, 10));
     printChar(val);
     printInt(val);
     printFloat(val);
@@ -166,7 +151,7 @@ void castFloat(const std::string &str)
 
 void castDouble(const std::string &str)
 {
-    double val = std::strtod(str.c_str(), NULL);
+    double val = static_cast<double>(std::strtod(str.c_str(), NULL));
     printChar(val);
     printInt(val);
     printFloat(val);
@@ -193,5 +178,5 @@ void ScalarConverter::convert(const std::string &str)
     else if (isChar(str))
         castChar(str);
     else
-        std::cout << "Error: invalid literal" << std::endl;
+        std::cout << "Error: invalid" << std::endl;
 }

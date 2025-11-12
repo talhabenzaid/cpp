@@ -7,11 +7,11 @@ int main()
     data.idx = 1;
     data.info = "Test";
 
-    uintptr_t raw = Serializer::serialize(&data);
-    Data* ptr = Serializer::deserialize(raw);
+    uintptr_t serialize = Serializer::serialize(&data);
+    Data* deserialize = Serializer::deserialize(serialize);
 
-    std::cout <<"idx=" << data.idx << " info=" << data.info << std::endl;
-    std::cout <<"idx=" << ptr->idx << " info=" << ptr->info << std::endl;
+    std::cout <<"data : idx = " << data.idx << " info = " << data.info << std::endl;
+    std::cout <<"ptr  : idx = " << deserialize->idx << " info = " << deserialize->info << std::endl;
 
     return 0;
 }
