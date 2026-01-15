@@ -4,6 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm> 
+#include <list>
+#include <deque>
+#include <set>
 
 template <typename T>
 typename T::iterator easyfind(T& t,int i)

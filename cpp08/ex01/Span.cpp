@@ -45,16 +45,16 @@ int Span::shortestSpan()
     std::vector<int> tmp(v);
     std::sort(tmp.begin(), tmp.end());
 
-    int minSpan = tmp[1] - tmp[0];
+    int min = tmp[1] - tmp[0];
 
     for (size_t i = 2; i < tmp.size(); ++i)
     {
         int diff = tmp[i] - tmp[i - 1];
-        if (diff < minSpan)
-            minSpan = diff;
+        if (diff < min)
+            min = diff;
     }
 
-    return minSpan;
+    return min;
 }
 
 int Span::longestSpan()
