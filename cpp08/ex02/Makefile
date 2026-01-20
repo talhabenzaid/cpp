@@ -1,6 +1,6 @@
 NAME	= a.out
 
-SRCS	=  main.cpp Span.cpp
+SRCS	=  main.cpp 
  
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $@
 
-%.o: %.cpp Span.hpp
+%.o: %.cpp MutantStack.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean:

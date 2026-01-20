@@ -9,10 +9,10 @@ template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
 
 template <typename T>
-MutantStack<T>::MutantStack(MutantStack &other) : std::stack<T>(other) {}
+MutantStack<T>::MutantStack(const MutantStack &other) : std::stack<T>(other) {}
 
 template <typename T>
-MutantStack<T>& MutantStack<T>::operator=(MutantStack &other)
+MutantStack<T>& MutantStack<T>::operator=(const MutantStack &other)
 {
     if (this != &other)
         std::stack<T>::operator=(other);
@@ -40,14 +40,14 @@ MutantStack<T>::iterator::iterator(T* p)
 }
 
 template <typename T>
-MutantStack<T>::iterator::iterator(iterator &other)
+MutantStack<T>::iterator::iterator(const iterator &other)
 {
     pointer = other.pointer;
 }
 
 template <typename T>
 typename MutantStack<T>::iterator&
-MutantStack<T>::iterator::operator=(iterator &other)
+MutantStack<T>::iterator::operator=(const iterator &other)
 {
     if (this != &other)
         pointer = other.pointer;

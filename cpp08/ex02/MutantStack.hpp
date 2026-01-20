@@ -4,13 +4,15 @@
 #include <stack>
 #include <iostream>
 
+
+
 template <typename T>
 class MutantStack : public std::stack<T>
 {
     public:
         MutantStack();
-        MutantStack(MutantStack &other);
-        MutantStack& operator=(MutantStack &other);
+        MutantStack(const MutantStack &other);
+        MutantStack& operator=(const MutantStack &other);
         ~MutantStack();
 
         class iterator
@@ -20,8 +22,8 @@ class MutantStack : public std::stack<T>
             public:
                 iterator();
                 iterator(T* pointer);
-                iterator(iterator &other);
-                iterator& operator=(iterator &other);
+                iterator(const iterator &other);
+                iterator& operator=(const iterator &other);
                 ~iterator();
                 T& operator*();
                 iterator operator++();
@@ -37,6 +39,8 @@ class MutantStack : public std::stack<T>
         iterator begin();
         iterator end();
 };
+
+#include "MutantStack.tpp" 
 
 
 #endif
